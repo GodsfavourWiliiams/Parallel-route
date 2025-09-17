@@ -36,7 +36,7 @@ export default function Sidebar() {
       </nav>
       <div className="mt-auto">
         <Button asChild className="w-full">
-          <Link href={{ pathname: "/chat", query: { from: pathname ?? "/" } }}>
+          <Link href={`/chat?from=${encodeURIComponent(pathname ?? "/")}`}>
             Open Chat
           </Link>
         </Button>

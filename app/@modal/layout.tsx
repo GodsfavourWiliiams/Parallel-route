@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import ChatShell from "@/components/chat/ChatShell";
 
 export default function ModalLayout({
@@ -10,7 +11,9 @@ export default function ModalLayout({
   return (
     <>
       {children}
-      <ChatShell />
+      <Suspense fallback={null}>
+        <ChatShell />
+      </Suspense>
     </>
   );
 }

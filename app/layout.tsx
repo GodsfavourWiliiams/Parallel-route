@@ -27,12 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="min-h-screen flex">
-          <aside className="w-64 shrink-0 border-r bg-background/60">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden`}>
+        <div className="h-screen overflow-hidden">
+          <aside className="fixed top-0 left-0 h-screen w-64 border-r bg-background/60">
             <Sidebar />
           </aside>
-          <div className="flex-1 relative min-h-screen">
+          <div className="ml-64 h-screen overflow-y-auto relative">
             <main className="min-h-screen p-8">{children}</main>
             {/* Modal slot overlays via portal; keep after children */}
             {modal}

@@ -6,7 +6,7 @@ export default function Page() {
       <h1 className="text-2xl font-bold">This is Step 3</h1>
       <p className="text-muted-foreground">You are getting closer.</p>
       <div className="flex gap-2">
-        <Link href={{ pathname: "/chat", query: { from: "/step-three" } }} className="underline">
+        <Link href="/chat?from=%2Fstep-three" className="underline">
           Open Chat
         </Link>
         <Link href="/step-four" className="underline">
