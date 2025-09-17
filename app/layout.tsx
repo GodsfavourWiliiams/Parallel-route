@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,15 +20,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="min-h-screen flex">
+          <aside className="w-64 shrink-0 border-r bg-background/60">
+            <Sidebar />
+          </aside>
+          <div className="flex-1 relative min-h-screen">
+            <main className="min-h-screen p-8">{children}</main>
+            {/* Modal slot overlays via portal; keep after children */}
+            {modal}
+          </div>
+        </div>
       </body>
     </html>
   );
